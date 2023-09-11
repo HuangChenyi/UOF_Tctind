@@ -1,7 +1,7 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
-[Bb]in/
-[Oo]bj/
-
+bin/GcHtmlToPdf.exe
+Basic/Personal/UM/Windows/Upgrade/UM.zip
+Basic/Personal/UM/Windows/Upgrade/UMsetup.msi
 # mstest test results
 TestResults
 
