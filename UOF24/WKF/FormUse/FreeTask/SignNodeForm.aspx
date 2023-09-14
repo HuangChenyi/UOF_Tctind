@@ -720,7 +720,11 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="background-color: white; height: 140px; margin: 0; padding-bottom: 0; padding-top: 0;" valign="top" align="left">
-                                                                    <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine" Width="100%" Height="100%" meta:resourcekey="txtCommentResource1"></asp:TextBox>
+                                                                    <asp:TextBox ID="txtComment" runat="server" TextMode="MultiLine" Width="100%" Height="80%" meta:resourcekey="txtCommentResource1"></asp:TextBox>
+                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
+                                                                         Display="Dynamic" ControlToValidate="txtComment"
+                                                                        runat="server" ErrorMessage="意見必填"></asp:RequiredFieldValidator>
+                                                                
                                                                 </td>
                                                             </tr>
                                                         </table>

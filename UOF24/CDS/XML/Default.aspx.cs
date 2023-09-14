@@ -6,19 +6,30 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.Xml.Linq;
 
 public partial class CDS_XML_Default : Ede.Uof.Utility.Page.BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        
+
         //<FieldValue>
         //  <Item id='A01' value='V01' />
         //  <Item id='A02' value='V02' >InnerText</Item>
         //  <Item id='A03' value='V03' />
         //<FieldValue>
 
+        XElement xe = new XElement("FieldValue"  );
+
+        XElement item01XE = new XElement("Item", new XAttribute("id", "A01"), new XAttribute("value", "V01"));
+        XElement item02XE = new XElement("Item", new XAttribute("id", "A02"), new XAttribute("value", "V02"), "InnerText");
+        XElement item03XE = new XElement("Item", new XAttribute("id", "A03"), new XAttribute("value", "V<0>3"));
+
+        xe.Add(item01XE, item02XE, item03XE);
+        
+        txtXML.Text = xe.ToString(  SaveOptions.DisableFormatting );
+        return;
         XmlDocument xmlDoc = new XmlDocument();
         //<FieldValue/>
         XmlElement fieldValueElement = xmlDoc.CreateElement("FieldValue");
@@ -52,15 +63,28 @@ public partial class CDS_XML_Default : Ede.Uof.Utility.Page.BasePage
     }
     protected void btnGetValue_Click(object sender, EventArgs e)
     {
+
+        XElement xe = XElement.Parse(txtXML.Text);
+
+        var node = (from xl in xe.Elements("Item")
+                    where xl.Attribute("id").Value == txtID.Text
+                    select xl).FirstOrDefault();
+        txtValue.Text = node.Attribute("value").Value;
+
+        return;
         XmlDocument xmlDoc = new XmlDocument();
         xmlDoc.LoadXml(txtXML.Text);
-
+        txtValue.Text = xmlDoc.SelectSingleNode
+            (string.Format("./FieldValue/Item[@id='{0}']", txtID.Text)).
+            Attributes["value"].Value;
+        
+         
         //<FieldValue>
         //  <Item id='A01' value='V01' />
         //  <Item id='A02' value='V02' >InnerText</Item>
         //  <Item id='A03' value='V03' />
         //<FieldValue>
 
-        txtValue.Text = xmlDoc.SelectSingleNode(string.Format("./FieldValue/Item[@id='{0}']", txtID.Text)).Attributes["value"].Value;
+
     }
 }

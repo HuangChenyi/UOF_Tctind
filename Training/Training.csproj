@@ -94,6 +94,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DemoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FieldObj\POFields.cs" />
     <Compile Include="PO\DemoPO.cs" />
     <Compile Include="PO\ExtSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

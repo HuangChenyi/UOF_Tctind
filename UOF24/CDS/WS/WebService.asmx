@@ -87,7 +87,7 @@ public class WebService  : System.Web.Services.WebService {
     [WebMethod]
     public string GetFieldValueByDDL(string formInfo)
     {
-
+               formInfo = HttpUtility.UrlDecode(formInfo);
         XmlDocument returnXmlDoc = new XmlDocument();
 
         //<Form returnStatus="regular|fault">
@@ -106,39 +106,39 @@ public class WebService  : System.Web.Services.WebService {
         XmlElement msgElement = returnXmlDoc.CreateElement("msg");
 
 
-        XmlNode node1 = itemElement.Clone();
-        node1.Attributes["fieldText"].Value = "高雄廠";
-        node1.Attributes["fieldValue"].Value = "高雄廠";
+        //XmlNode node1 = itemElement.Clone();
+        //node1.Attributes["fieldText"].Value = "高雄廠";
+        //node1.Attributes["fieldValue"].Value = "高雄廠";
 
-        XmlNode node2 = itemElement.Clone();
-        node2.Attributes["fieldText"].Value = "新竹廠";
-        node2.Attributes["fieldValue"].Value = "新竹廠";
+        //XmlNode node2 = itemElement.Clone();
+        //node2.Attributes["fieldText"].Value = "新竹廠";
+        //node2.Attributes["fieldValue"].Value = "新竹廠";
 
-        XmlNode node3 = itemElement.Clone();
-        node3.Attributes["fieldText"].Value = "台中廠";
-        node3.Attributes["fieldValue"].Value = "台中廠";
+        //XmlNode node3 = itemElement.Clone();
+        //node3.Attributes["fieldText"].Value = "台中廠";
+        //node3.Attributes["fieldValue"].Value = "台中廠";
 
-        XmlNode node4 = itemElement.Clone();
-        node4.Attributes["fieldText"].Value = "越南廠";
-        node4.Attributes["fieldValue"].Value = "越南廠";
+        //XmlNode node4 = itemElement.Clone();
+        //node4.Attributes["fieldText"].Value = "越南廠";
+        //node4.Attributes["fieldValue"].Value = "越南廠";
 
-        formElement.AppendChild(node1);
-        formElement.AppendChild(node2);
-        formElement.AppendChild(node3);
-        formElement.AppendChild(node4);
-        formElement.AppendChild(msgElement);
+        //formElement.AppendChild(node1);
+        //formElement.AppendChild(node2);
+        //formElement.AppendChild(node3);
+        //formElement.AppendChild(node4);
+        //formElement.AppendChild(msgElement);
 
-        //Training.UCO.DemoUCO uco = new Training.UCO.DemoUCO();
-        //System.Data.DataTable dt = uco.GetUserData();
+        Training.UCO.DemoUCO uco = new Training.UCO.DemoUCO();
+        System.Data.DataTable dt = uco.GetUserData();
 
-        //foreach (DataRow dr in dt.Rows)
-        //{
-        //    XmlNode node1 = itemElement.Clone();
-        //    node1.Attributes["fieldText"].Value = dr["NAME"].ToString();
-        //    node1.Attributes["fieldValue"].Value = dr["NAME"].ToString();
+        foreach (DataRow dr in dt.Rows)
+        {
+            XmlNode node1 = itemElement.Clone();
+            node1.Attributes["fieldText"].Value = dr["NAME"].ToString();
+            node1.Attributes["fieldValue"].Value = dr["NAME"].ToString();
 
-        //    formElement.AppendChild(node1);
-        //}
+            formElement.AppendChild(node1);
+        }
 
         formElement.AppendChild(msgElement);
 
@@ -209,8 +209,8 @@ public class WebService  : System.Web.Services.WebService {
         return returnValueElement.OuterXml;
     }
 
-    
-      [WebMethod]
+
+    [WebMethod]
     public string FormSignEvent(string formInfo)
     {
         formInfo = HttpUtility.UrlDecode(formInfo);
@@ -311,4 +311,4 @@ public class WebService  : System.Web.Services.WebService {
         return returnValueElement.OuterXml;
     }
 }
-    
+
