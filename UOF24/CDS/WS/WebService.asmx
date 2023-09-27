@@ -87,7 +87,7 @@ public class WebService  : System.Web.Services.WebService {
     [WebMethod]
     public string GetFieldValueByDDL(string formInfo)
     {
-               formInfo = HttpUtility.UrlDecode(formInfo);
+        formInfo = HttpUtility.UrlDecode(formInfo);
         XmlDocument returnXmlDoc = new XmlDocument();
 
         //<Form returnStatus="regular|fault">
@@ -186,12 +186,22 @@ public class WebService  : System.Web.Services.WebService {
         try
         {
 
-            int price = int.Parse(xmlDoc.SelectSingleNode("/Form/FormFieldValue/FieldItem[@fieldId='A01']").Attributes["fieldValue"].Value);
+            int price = int.Parse(xmlDoc.SelectSingleNode
+                ("/Form/FormFieldValue/FieldItem[@fieldId='A01']").Attributes["fieldValue"].Value);
 
+                string a02 = xmlDoc.SelectSingleNode
+                ("/Form/FormFieldValue/FieldItem[@fieldId='A02']").Attributes["fieldValue"].Value;
+         
             if (price > 50)
             {
                 returnValueElement.SelectSingleNode("/ReturnValue/Status").InnerText = "0";
                 returnValueElement.SelectSingleNode("/ReturnValue/Exception/Message").InnerText = "單價不可大於50";
+            }
+            
+             else if (string.IsNullOrEmpty(a02))
+            {
+                returnValueElement.SelectSingleNode("/ReturnValue/Status").InnerText = "0";
+                returnValueElement.SelectSingleNode("/ReturnValue/Exception/Message").InnerText = "A02不可為空";
             }
             else
             {
