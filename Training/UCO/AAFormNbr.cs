@@ -6,31 +6,30 @@ using System.Threading.Tasks;
 
 namespace Training.UCO
 {
-    public class AutoNbr : Ede.Uof.WKF.ExternalUtility.IFormAutoNumber
+    public class AAFormNbr : Ede.Uof.WKF.ExternalUtility.IFormAutoNumber
     {
         public void Finally()
         {
-         //   throw new NotImplementedException();
+           // throw new NotImplementedException();
         }
 
         public string GetFormNumber(string formId, string userGroupId, string formValueXML)
         {
-            //   throw new NotImplementedException();
 
             DemoUCO uco = new DemoUCO();
-            
 
-            return uco.GetNextFormNumber("PR");
+
+            return uco.GetNextFormNumber("AA");
         }
 
         public void OnError()
         {
-       //     throw new NotImplementedException();
+          //  throw new NotImplementedException();
         }
 
         public void OnExecption(Exception errorException)
         {
-         //   throw new NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

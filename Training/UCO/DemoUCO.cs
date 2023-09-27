@@ -14,6 +14,22 @@ namespace Training.UCO
         DemoPO m_DemoPO = new DemoPO();
 
 
+        public string GetNextFormNumber(string formNo)
+        {
+
+            int seq = m_DemoPO.GetCurrentFormNumber(formNo, DateTime.Today.Year, DateTime.Today.Month);
+            seq++;
+
+
+            if(seq>1)
+            m_DemoPO.UpdateCurrentFormNumber(formNo, DateTime.Today.Year, DateTime.Today.Month, seq);
+            else
+                m_DemoPO.InsertCurrentFormNumber(formNo, DateTime.Today.Year, DateTime.Today.Month, seq);
+            
+            return $"{formNo}{((DateTime.Today.Year-1911)%100).ToString("d2")}{DateTime.Today.Month.ToString("d2")}{seq.ToString("d4")}";
+            
+        }
+
         public DataTable GetUserData(string groupId)
         {
             return m_DemoPO.GetUserData(groupId);

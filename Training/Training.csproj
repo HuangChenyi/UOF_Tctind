@@ -107,6 +107,7 @@
     <Compile Include="Trigger\DemoForm\EndFormTrigger.cs" />
     <Compile Include="Trigger\DemoForm\OnFlowFormTrigger.cs" />
     <Compile Include="Trigger\DemoForm\StartFormTrigger.cs" />
+    <Compile Include="UCO\AAFormNbr.cs" />
     <Compile Include="UCO\AutoNbr.cs" />
     <Compile Include="UCO\DemoUCO.cs" />
   </ItemGroup>

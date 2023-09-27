@@ -34,7 +34,82 @@ namespace Training.PO
 
         }
 
-      
+        internal void InsertCurrentFormNumber(string formNo, int year, int month, int seq)
+        {
+            string cmdTxt = @"  INSERT INTO [dbo].[TB_TCTIND_AUTO_NO]  
+(	 [FORM_NO] , 
+	 [YEAR] , 
+	 [MONTH] , 
+	 [SEQ]  
+) 
+ VALUES 
+ (	 @FORM_NO , 
+	 @YEAR , 
+	 @MONTH , 
+	 @SEQ  
+)";
+
+            this.m_db.AddParameter("@SEQ", seq);
+            this.m_db.AddParameter("@FORM_NO", formNo);
+            this.m_db.AddParameter("@YEAR", year);
+            this.m_db.AddParameter("@MONTH", month);
+            this.m_db.ExecuteNonQuery(cmdTxt);
+
+        }
+
+        internal void UpdateCurrentFormNumber(string formNo, int year, int month, int seq)
+        {
+            string cmdTxt = @"  UPDATE [dbo].[TB_TCTIND_AUTO_NO]  
+ SET 
+	 [SEQ] = @SEQ  
+
+WHERE 
+	[FORM_NO] = @FORM_NO
+AND 
+	[YEAR] = @YEAR
+AND 
+	[MONTH] = @MONTH";
+
+            this.m_db.AddParameter("@SEQ", seq);
+            this.m_db.AddParameter("@FORM_NO", formNo);
+            this.m_db.AddParameter("@YEAR", year);
+            this.m_db.AddParameter("@MONTH", month);
+
+            this.m_db.ExecuteNonQuery(cmdTxt);
+
+        }
+
+        internal int GetCurrentFormNumber(string formNo, int year, int month)
+        {
+            string cmdTxt = @" SELECT 
+	 [SEQ]  
+ FROM [dbo].[TB_TCTIND_AUTO_NO] 
+WHERE 
+	[FORM_NO] = @FORM_NO
+AND 
+	[YEAR] = @YEAR
+AND 
+	[MONTH] = @MONTH";
+
+            this.m_db.AddParameter("@FORM_NO", formNo);
+            this.m_db.AddParameter("@YEAR", year);
+            this.m_db.AddParameter("@MONTH", month);
+
+            int seq = 0;
+
+            object obj = this.m_db.ExecuteScalar(cmdTxt);
+
+
+            if (obj == null || obj == DBNull.Value)
+            {
+                return seq;
+
+            }
+
+            return Convert.ToInt32(obj);
+
+        }
+
         internal void InsertTaskData(DataRow dr)
         {
             string cmdTxt = @"  INSERT INTO [dbo].[TB_DEMO_TASK]  
