@@ -39,23 +39,39 @@ namespace Training.PO
             XmlDocument formXmlDoc = new XmlDocument();
             formXmlDoc.LoadXml(formInfo);
             UserUCO userUCO= new UserUCO();
-            string account = formXmlDoc.SelectSingleNode("/ExternalFlowSite/ApplicantInfo").Attributes["account"].Value;
+            string account = formXmlDoc.SelectSingleNode("/ExternalFlowSite/ApplicantInfo").
+                Attributes["account"].Value;
             string userGuid = userUCO.GetGUID(account);
 
             EBUser ebUser = userUCO.GetEBUser(userGuid);
 
-            string signer = "";
+            string signer = ebUser.Option1;
 
-            if (ebUser.HasJobFunction("Superior"))
-            {
-                signer = "admin";
-            }
-            else
-            {
-                signer = "Tony";
-            }
+            //if (ebUser.HasJobFunction("Superior"))
+            //{
+            //    signer = "admin";
+            //}
+            //else
+            //{
+            //    signer = "Tony";
+            //}
 
 
+            Lib.WKF.ExternalDllSites sites = new Lib.WKF.ExternalDllSites();
+
+            Lib.WKF.ExternalDllSite site1 = new Lib.WKF.ExternalDllSite();
+            site1.Signers.Add("Tony");
+            site1.Signers.Add("Mary");
+            site1.SignType = Lib.WKF.SignType.And;
+
+            Lib.WKF.ExternalDllSite site2 = new Lib.WKF.ExternalDllSite();
+            site2.Signers.Add("Wang");
+            site2.Alerts.Add("HR");
+
+            sites.Sites.Add(site1);
+            sites.Sites.Add(site2);
+
+            string xml = sites.ConvertToXML();
 
             XmlDocument xmlDoc = new XmlDocument();
             //<ReturnValue></ReturnValue>

@@ -75,6 +75,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UOF24\bin\Ede.Uof.WKF.Design.dll</HintPath>
     </Reference>
+    <Reference Include="Lib">
+      <HintPath>bin\Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\UOF24\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Quartz, Version=2.6.2.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\UOF24\bin\Quartz.dll</HintPath>
@@ -94,6 +101,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DemoDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DLLFormSchema.cs" />
     <Compile Include="FieldObj\POFields.cs" />
     <Compile Include="PO\DemoPO.cs" />
     <Compile Include="PO\ExtSite.cs" />
@@ -103,6 +111,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="SendFormTask.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="Trigger\DemoForm\EndFormTrigger.cs" />
     <Compile Include="Trigger\DemoForm\OnFlowFormTrigger.cs" />

@@ -22,7 +22,7 @@ public class WWWSSS : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public string HelloWorld()
+    public string SendForm(string json)
     {
         return "Hello World";
     }

@@ -1,0 +1,582 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lib</name>
+    </assembly>
+    <members>
+        <member name="T:Lib.EIP.Sch.Info.MettingInfo">
+            <summary>
+            會議資訊
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.MEETING_GUID">
+            <summary>
+            會議ID
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.CREATE_USER">
+            <summary>
+            建立者GUID
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.OWNER">
+            <summary>
+            擁有者
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.SUBJECT">
+            <summary>
+            主旨
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.DESCRIPTION">
+            <summary>
+            說明
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.LOCATION">
+            <summary>
+            地點
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.IS_LIVE_MEETING">
+            <summary>
+            是否為線上會議
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.VIRTUAL_MEETING_ID">
+            <summary>
+            線上會議ID
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.USER_SET">
+            <summary>
+            會議預計與會人員USERSET
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.CHAIR">
+            <summary>
+            會議主席USERGUID
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.FILE_GROUP_ID">
+            <summary>
+            附件GUID
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.START_TIME">
+            <summary>
+            開始時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.END_TIME">
+            <summary>
+            結束時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MettingInfo.CONTACT_PERSON">
+            <summary>
+            會議聯絡人UESRSET
+            </summary>
+        </member>
+        <member name="T:Lib.EIP.Sch.Info.MemoInfo">
+            <summary>
+            備忘資訊
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.ALL_DAY">
+            <summary>
+            是否全天
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.CREATE_TIME">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.CREATE_USER">
+            <summary>
+            建立者
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.DESCRIPTION">
+            <summary>
+            說明
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.END_TIME">
+            <summary>
+            結束時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.OWNER">
+            <summary>
+            備忘擁有者
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.REMINDER_TIME">
+            <summary>
+            提醒時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.START_TIME">
+            
+            <summary>
+            開始時間
+            </summary>
+        </member>
+        <member name="P:Lib.EIP.Sch.Info.MemoInfo.SUBJECT">
+            <summary>
+            標題
+            </summary>
+        </member>
+        <member name="T:Lib.EIP.Sch.Info.WorkInfo">
+            <summary>
+            工作資訊
+            </summary>
+        </member>
+        <member name="T:Lib.EIP.Sch.Info.DevolveInfo">
+            <summary>
+            交辦資訊
+            </summary>
+        </member>
+        <member name="M:Lib.EIP.Sch.MeetingUCO.CreateMeeting(Lib.EIP.Sch.Info.MettingInfo)">
+            <summary>
+            建立行事曆
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Lib.EIP.Sch.MemoUCO.CreateMemo(Lib.EIP.Sch.Info.MemoInfo)">
+            <summary>
+            新增備忘
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="M:Lib.Organization.Organization.GetSignerByJobTitle(System.String,System.String,System.String)">
+            <summary>
+            取得職級的簽核者
+            </summary>
+            <param name="UserTitleName"></param>
+            <param name="UserGroupId"></param>
+            <param name="SignerTitleNamne"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.Organization.GetTitleOfGroupSigner(System.String,System.String)">
+            <summary>
+            取得職級簽核者
+            </summary>
+            <param name="groupId"></param>
+            <param name="signerTitleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.Organization.GetUserSuperior(System.String)">
+            <summary>
+            取得員工直屬主管
+            </summary>
+            <param name="userGuid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.Organization.CheckIsDeptSuperior(System.String,System.String)">
+            <summary>
+            檢查是否是否是部門主管
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.Organization.AddSuperiorToUserSet(System.String,Ede.Uof.EIP.Organization.Util.UserSet)">
+            <summary>
+            把主管加到 UserSet 裡 , 2006/11/27 尋找部門主管，如果找不到就往上找，直到找到為止
+            </summary>
+            <param name="groupId"></param>
+            <param name="userSet"></param>
+        </member>
+        <member name="M:Lib.Organization.OrganizationPlus.GetUserGuid(System.String)">
+            <summary>
+            取得人員GUID
+            </summary>
+            <param name="account">帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.OrganizationPlus.GetFuncGuid(System.String)">
+            <summary>
+            取得職務GUID
+            </summary>
+            <param name="funcName">職務名稱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.OrganizationPlus.GetTitleGuid(System.String)">
+            <summary>
+            取得職級GUID
+            </summary>
+            <param name="titleName">職級名稱</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.OrganizationPlus.getDeptGuid(System.String)">
+            <summary>
+            取得部門Guid
+            </summary>
+            <param name="deptPath">部門結構(EX:總公司/第一事業部)</param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.UserSetPlus.ConverToUserSet">
+            <summary>
+            轉換回UOF的UserSet格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.Organization.UserSetPlus.ConverToJson">
+            <summary>
+            轉換成JSON格式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Lib.Form.TransferFormWS">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.SendFormCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetFormListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetExternalFormListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetFormStructureCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetFormStructureByFormIdCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetTaskDataCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.SetRelayFormDataCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.TerminateTaskCompleted">
+            <remarks/>
+        </member>
+        <member name="E:Lib.Form.TransferFormWS.GetTaskResultCompleted">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SendForm(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SendFormAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SendFormAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormList">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormListAsync">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormListAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetExternalFormList">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetExternalFormListAsync">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetExternalFormListAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructure(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructureAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructureAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructureByFormId(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructureByFormIdAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetFormStructureByFormIdAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskData(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskDataAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskDataAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SetRelayFormData(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SetRelayFormDataAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.SetRelayFormDataAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.TerminateTask(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.TerminateTaskAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.TerminateTaskAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskResult(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskResultAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.GetTaskResultAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:Lib.Form.TransferFormWS.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.SendFormCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.SendFormCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.SendFormCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetFormListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetExternalFormListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetExternalFormListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetExternalFormListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormStructureCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormStructureCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetFormStructureCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormStructureByFormIdCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetFormStructureByFormIdCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetFormStructureByFormIdCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetTaskDataCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetTaskDataCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetTaskDataCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.SetRelayFormDataCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.SetRelayFormDataCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.SetRelayFormDataCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.TerminateTaskCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.TerminateTaskCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.TerminateTaskCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetTaskResultCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:Lib.Form.GetTaskResultCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:Lib.Form.GetTaskResultCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.QueryExernalForms">
+            <summary>
+            找出所有可以起單的TABLE
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.UpdateExernalFormResult(System.String,System.String,System.Int32)">
+            <summary>
+            更新表單審核結果
+            </summary>
+            <param name="tableName"></param>
+            <param name="formResult"></param>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.QueryExernalForms(System.String)">
+            <summary>
+            找出起單的TABLE名稱
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.QueryAllApplyForms(System.String)">
+            <summary>
+            找出所有申請的表單
+            </summary>
+            <param name="tableName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.QueryDataGridFieldData(System.String,System.String)">
+            <summary>
+            找明細資料
+            </summary>
+            <param name="tableName"></param>
+            <param name="externalTaskId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.QueryVersionFields(System.String)">
+            <summary>
+            找到欄位設定的XML
+            </summary>
+            <param name="formVersionId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.PO.ExternalFormPO.UpdateFormStatus(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            更新起單成功後狀態
+            </summary>
+            <param name="externalTaskId"></param>
+            <param name="tableName"></param>
+            <param name="status"></param>
+            <param name="taskId"></param>
+            <param name="formNbr"></param>
+            <param name="exception"></param>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetCommonField(System.String,System.String,System.String,System.String)">
+            <summary>
+            所見即所得的通用欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldValue"></param>
+            <param name="realValue"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetAutoNumberField(System.String,System.String)">
+            <summary>
+            表單編號欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="formNumber"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetFileFieldElement(System.String,System.String,System.String)">
+            <summary>
+            檔案欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="filePath"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetOptionalFieldXml(System.String,System.String,System.String)">
+            <summary>
+            外掛欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="optionData"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetFieldElement(System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            通用欄位 -> 特殊的欄位都用這METHOD 
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldValue"></param>
+            <param name="realValue"></param>
+            <param name="userName"></param>
+            <param name="userGuid"></param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetCellElement(System.String,System.String,System.String)">
+            <summary>
+            通用欄位 -> 特殊的欄位都用這METHOD  (明細子欄位專用
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldValue"></param>
+            <param name="realValue"></param>
+            <param name="userName"></param>
+            <param name="userGuid"></param>
+            <param name="account"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetDropDownListField(System.String,System.String,System.String,System.String)">
+            <summary>
+            下拉選單
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldValue"></param>
+            <param name="realValue"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetAllUserField(System.String,System.String,System.String,System.String)">
+            <summary>
+            所有人員欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="fieldValue"></param>
+            <param name="realValue"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Lib.WKF.FieldUtility.GetDataGridField(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            明細欄位
+            </summary>
+            <param name="fieldId"></param>
+            <param name="externalTaskId"></param>
+            <param name="applicant"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Lib.WKF.TaskPro">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Lib.WKF.TaskPro.m_Task">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

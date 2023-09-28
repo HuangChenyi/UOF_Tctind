@@ -17,6 +17,11 @@ public partial class CDS_Grid_Default : Ede.Uof.Utility.Page.BasePage
         {
             BindGrid();
         }
+
+        if (true)
+        {
+
+        }
     }
 
     private void BindGrid()

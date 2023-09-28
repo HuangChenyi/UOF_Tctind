@@ -21,6 +21,7 @@ using Ede.Uof.WKF.Engine;
 using Training.FieldObj;
 using Newtonsoft.Json;
 using DocumentFormat.OpenXml.Spreadsheet;
+using Ede.Uof.EIP.SystemInfo;
 
 public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_VersionFieldUserControl_VersionFieldUC
 {
@@ -42,6 +43,12 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
 		//這裡不用修改
 		//欄位的初始化資料都到SetField Method去做
         SetField(m_versionField);
+
+        //目前登入者(填單者)
+        //Current.UserGUID
+        //表單實際申請人
+        //base.ApplicantGuid
+
     }    
 
 
@@ -212,6 +219,12 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
             
 
 
+            if(MobileUI && fieldOptional.FieldMode== FieldMode.View)
+            {
+                ((Master_MobileMasterPage)this.Page.Master).Button5CausesValidation = false;
+            }
+
+
             if(!IsPostBack)
             {
                 if (!string.IsNullOrEmpty(fieldOptional.FieldValue))
@@ -228,10 +241,13 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
                     System.Dynamic.ExpandoObject param =
              new { TASK_ID = lblTaskID.Text }.ToExpando();
 
-                    Dialog.Open2(lbtnDOCNBR, "~/WKF/FormUse/ViewForm.aspx",
-                        "觀看表單", 1024, 768, Dialog.PostBackType.None,
-                    param
-                        ); ;
+                    //Dialog.Open2(lbtnDOCNBR, "~/WKF/FormUse/ViewForm.aspx",
+                    //    "觀看表單", 1024, 768, Dialog.PostBackType.None,
+                    //param
+                    //    ); ;
+
+
+                 
 
                     BindGrid();
 
@@ -295,13 +311,14 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
             lblItem.Text = task.CurrentDocument.Fields["A01"].FieldValue;
             lblGroup.Text = task.Applicant.GroupName;
             lblApplicant.Text = task.Applicant.UserName;
+            lblTaskID.Text = task.TaskId;
             System.Dynamic.ExpandoObject param =
                new { TASK_ID = Dialog.GetReturnValue() }.ToExpando();
 
-            Dialog.Open2(lbtnDOCNBR, "~/WKF/FormUse/ViewForm.aspx",
-                "觀看表單", 1024, 768, Dialog.PostBackType.None,
-            param
-                ); ;
+            //Dialog.Open2(lbtnDOCNBR, "~/WKF/FormUse/ViewForm.aspx",
+            //    "觀看表單", 1024, 768, Dialog.PostBackType.None,
+            //param
+            //    ); ;
         }
     }
 
@@ -318,11 +335,34 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
 
     }
 
+    DataTable ConvertDT()
+    {
+        var poFiels = this.DeSerializeObject();
+
+        DataTable dt = new DataTable();
+
+        dt.Columns.Add("A");
+        dt.Columns.Add("B");
+        dt.Columns.Add("C");
+
+        foreach(var item in poFiels.清單)
+        {
+            dt.Rows.Add(item.產品名稱,item.金額, item.零件編號);
+        }
+
+        return dt;
+    }
+
+
     private void BindGrid()
     {
         var poFiels = this.DeSerializeObject();
         grid.DataSource = poFiels.清單;
         grid.DataBind();
+
+
+
+
 
     }
 
@@ -340,5 +380,21 @@ public partial class WKF_OptionalFields_OptionFieldUC3 : WKF_FormManagement_Vers
 
         this.SrializeObject(pofiels);
         BindGrid();
+    }
+
+    protected void lbtnDOCNBR_Click(object sender, EventArgs e)
+    {
+        string js = string.Format(@"
+var w=$uof.tool.printScreenSize('w', 800);
+var h=$uof.tool.printScreenSize('h', 768);
+var url= '../FormPrint.aspx?TASK_ID={0}&SHOW_FILLER={1}'
+$uof.window.open(url, w, h, true); 
+
+", lblTaskID.Text, true);
+
+
+        //string str = @"$uof.dialog.open2('~/WKF/FormUse/FormPrint.aspx','','',800,768,function(){return false;},{'TASK_ID':'"+taskId+"'});";
+        ScriptManager.RegisterStartupScript(this.Page, typeof(string), Guid.NewGuid().ToString(), js, true);
+
     }
 }

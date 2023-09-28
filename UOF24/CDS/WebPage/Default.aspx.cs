@@ -17,7 +17,7 @@ public partial class CDS_WebPage_Default : Ede.Uof.Utility.Page.BasePage
         ExpandoObject param = new { Name = txtParam.Text }.ToExpando();
         //因為執行此行後，才會把JS的Event註冊到頁面上，所以過此行後下一次按btn元件的Event才會開窗並傳參數
         //故Dialog.Open2適合於參數為固定式的
-        Dialog.Open2(btn, "~/CDS/WebPage/Dialog.aspx", "", 800, 600, Dialog.PostBackType.Allows, param);
+        Dialog.Open2(btn, "~/CDS/WebPage/Dialog.aspx", "木木木", 800, 600, Dialog.PostBackType.Allows, param);
        /// btn.Attributes.Add("onclick",".......");
         if (!IsPostBack)
         {

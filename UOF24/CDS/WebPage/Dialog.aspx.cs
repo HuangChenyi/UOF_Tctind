@@ -9,6 +9,16 @@ using System.Web.UI.WebControls;
 
 public partial class CDS_WebPage_Dialog : Ede.Uof.Utility.Page.BasePage
 {
+
+    protected override void OnPreRender(EventArgs e)
+    {
+        base.OnPreRender(e);
+
+        
+            Page.Title = "設定回傳值"+Guid.NewGuid().ToString();
+        
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -23,8 +33,8 @@ public partial class CDS_WebPage_Dialog : Ede.Uof.Utility.Page.BasePage
         ((Master_DialogMasterPage)this.Master).Button1OnClick += CDS_WebPage_Dialog_Button1OnClick;
         ((Master_DialogMasterPage)this.Master).Button2ClientOnClick = "Button2OnClick";
 
-
-
+        
+        this.Page.Title = "設定回傳值";
 
         if (!IsPostBack)
         {

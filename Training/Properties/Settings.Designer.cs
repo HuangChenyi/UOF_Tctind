@@ -44,5 +44,15 @@ namespace Training.Properties {
                 return ((string)(this["TexRayWebDB_testConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=UOF_Tctind;Integrated Security=True")]
+        public string UOF_TctindConnectionString {
+            get {
+                return ((string)(this["UOF_TctindConnectionString"]));
+            }
+        }
     }
 }

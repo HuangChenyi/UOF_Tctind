@@ -130,6 +130,10 @@ public partial class WKF_OptionalFields_OptionFieldUC2 : WKF_FormManagement_Vers
             user.USER_GUID = userUCO.GetGUID("HR");
 
             userSet.Items.Add(user);
+             user = new UserSetUser();
+            user.USER_GUID = userUCO.GetGUID("Tony");
+
+            userSet.Items.Add(user);
             return userSet.GetXML();
         }
         set

@@ -37,7 +37,7 @@
         </td>
         <td>
              <asp:Label ID="lblTaskID" runat="server" Text="" Visible="false"></asp:Label>
-            <asp:LinkButton ID="lbtnDOCNBR" runat="server" Text=""></asp:LinkButton>
+            <asp:LinkButton ID="lbtnDOCNBR" runat="server" Text=""  OnClick="lbtnDOCNBR_Click" ></asp:LinkButton>
             <asp:Button ID="btnQuery" runat="server" Text="查詢" OnClick="btnQuery_Click" />
         </td>
         <td>

@@ -1,9 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/DefaultMasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="CDS_Grid_Default" %>
 
-<%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Fast" %>
+<%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Ede" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <Fast:Grid ID="grid" OnBeforeExport="grid_BeforeExport" PageSize="3" AllowSorting="true" runat="server" OnSorting="grid_Sorting" OnPageIndexChanging="grid_PageIndexChanging" DataKeyNames="USER_GUID" AutoGenerateColumns="false" AllowPaging="true">
+
+     <Ede:Grid ID="grid" runat="server" AutoGenerateColumns="false" AutoGenerateCheckBoxColumn="false">
+         
+     </Ede:Grid>
+
+
+    <Ede:Grid ID="grid" OnBeforeExport="grid_BeforeExport" PageSize="3" AllowSorting="true" runat="server" OnSorting="grid_Sorting" OnPageIndexChanging="grid_PageIndexChanging" DataKeyNames="USER_GUID" AutoGenerateColumns="false" AllowPaging="true">
 <EnhancePagerSettings FirstImageUrl="" FirstAltImageUrl="" PreviousImageUrl="" NextImageUrl="" LastImageUrl="" LastAltImage="" PageNumberCssClass="" PageNumberCurrentCssClass="" PageInfoCssClass="" PageRedirectCssClass="" NextIAltImageUrl="" PreviousAltImageUrl="" ShowHeaderPager="True"></EnhancePagerSettings>
 
         <ExportExcelSettings  AllowExportToExcel="true" ExportType="DataSource" />          
@@ -16,9 +22,7 @@
                         </asp:BoundField>
                     </Columns>
 
-    </Fast:Grid>
-
-   
+    </Ede:Grid>
 
     <asp:Button ID="btnGetSelect" runat="server" Text="取得選取內容(Key)" OnClick="btnGetSelect_Click" />  
      <asp:Button ID="btnGetSelectKey" runat="server" Text="取得選取內容(Index)" OnClick="btnGetSelectKey_Click" />    

@@ -30,6 +30,11 @@ namespace Training.UCO
             
         }
 
+        internal DemoDataSet GetForm()
+        {
+            return m_DemoPO.GetForm();
+        }
+
         public DataTable GetUserData(string groupId)
         {
             return m_DemoPO.GetUserData(groupId);
@@ -52,6 +57,10 @@ namespace Training.UCO
             m_DemoPO.InsertWsEndFormData(dr);
         }
 
+        internal void UpdateDLLFormResult(string iD, string result)
+        {
+            m_DemoPO.UpdateDLLFormResult(iD,result);
+        }
 
         public void InsertDDLStartFormData(DemoDataSet.TB_DEMO_DLL_FORMRow dr)
         {
@@ -67,6 +76,8 @@ namespace Training.UCO
         {
             m_DemoPO.UpdateFormResult(docNbr, formResult);
         }
+
+
 
     }
 }

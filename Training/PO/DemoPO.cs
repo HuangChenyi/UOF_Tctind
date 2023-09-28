@@ -57,6 +57,52 @@ namespace Training.PO
 
         }
 
+        internal DemoDataSet GetForm()
+        {
+            string cmdTxt = @" SELECT 
+	 [ID] , 
+	 [ITEM_QTY] , 
+	 [ITEM_PRICE] , 
+	 [ITEM] , 
+	 [DOC_NBR] , 
+	 [SIGN_STATIS] , 
+	 [FORM_RESULT] , 
+	 [REMARK] , 
+	 [SEND_STATUS] , 
+	 [MSG]  
+ FROM [dbo].[TB_DEMO_DLL_FORM] 
+WHERE 
+	[FORM_RESULT] = @FORM_RESULT
+AND 
+	[SEND_STATUS] = @SEND_STATUS";
+
+            this.m_db.AddParameter("@FORM_RESULT", "Adopt");
+            this.m_db.AddParameter("@SEND_STATUS", false);
+
+            DemoDataSet ds = new DemoDataSet();
+            ds.Load(this.m_db.ExecuteReader(cmdTxt), LoadOption.OverwriteChanges,ds.TB_DEMO_DLL_FORM);
+            return ds;
+
+        }
+
+        internal void UpdateDLLFormResult(string iD, string result)
+        {
+            string cmdTxt = @"  UPDATE [dbo].[TB_DEMO_DLL_FORM]  
+ SET 
+	 [SEND_STATUS] = @SEND_STATUS , 
+	 [MSG] = @MSG  
+
+WHERE 
+	[ID] = @ID";
+
+            this.m_db.AddParameter("@SEND_STATUS", true);
+            this.m_db.AddParameter("@MSG", result);
+            this.m_db.AddParameter("@ID", iD);
+
+            this.m_db.ExecuteNonQuery(cmdTxt);
+
+        }
+
         internal void UpdateCurrentFormNumber(string formNo, int year, int month, int seq)
         {
             string cmdTxt = @"  UPDATE [dbo].[TB_TCTIND_AUTO_NO]  

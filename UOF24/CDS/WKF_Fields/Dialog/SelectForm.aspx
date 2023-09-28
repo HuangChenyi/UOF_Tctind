@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/DialogMasterPage.master" AutoEventWireup="true" CodeFile="SelectForm.aspx.cs" Inherits="CDS_WKF_Fields_Dialog_SelectForm" %>
-<%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Fast" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Ede" %>
 
-    <Fast:Grid ID="grid" runat="server" AutoGenerateCheckBoxColumn="false" AutoGenerateColumns="false"
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+  
+    <Ede:Grid ID="grid" runat="server" AutoGenerateCheckBoxColumn="false" AutoGenerateColumns="false"
         OnRowCommand="grid_RowCommand"
         >
         <Columns>
@@ -14,7 +15,10 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-    </Fast:Grid>
+    </Ede:Grid>
+
+    <asp:GridView runat="server"></asp:GridView>
+
 
 </asp:Content>
 
